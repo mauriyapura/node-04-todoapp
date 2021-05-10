@@ -4,10 +4,15 @@ const taskRepository = new TaskRepository();
 
 const getAllTask = () => {
 
-    const tasks = taskRepository.getAllTask();
-    return tasks.map(e => {
-        return {title: e.title, done: e.done}
-    });
+    const tasks = taskRepository.getAllTask();       
+    const mapped = tasks.map(e => {
+        return {title: e.title, done: e.done}        
+    });    
+        
+    for (let i = 0; i < mapped.length; i++) {
+         console.log(`Tarea: ${mapped[i].title} --- Finalizada: ${mapped[i].done}`);        
+    }   
+    
 }
 
 const createTask = (title) => {

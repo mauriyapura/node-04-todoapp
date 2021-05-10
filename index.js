@@ -17,10 +17,10 @@ const main = async()=>{
                 break;
     
             case 2:
-                const allTasks = getAllTask();
-                console.log(allTasks);
+                const allTasks = getAllTask();                
             
                 break;
+            
         }
         
     } while (option !== "x");  

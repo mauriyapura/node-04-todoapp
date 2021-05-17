@@ -1,7 +1,7 @@
 
-
 const Task = require("../models/Task");
 const {getData, saveData} = require("../helpers/fileManager");
+const getTodayDate = require("../helpers/dateFormat");
 
 
 class TaskRepository {
@@ -15,11 +15,12 @@ class TaskRepository {
         }else{
             this._tasks = [];
         }
-        //this._tasks = []; esta linea era el drama
+        
     }
 
     getAllTask(){
         
+        //console.log(this._tasks)
         return this._tasks;
 
     }
@@ -38,12 +39,24 @@ class TaskRepository {
         this._tasks.push(task);        
         saveData(this._tasks);
     }
+    
+    deleteTask(id){        
 
-    deleteTask(){
+        this._tasks = this._tasks.filter((el)=> el.id != id);
+        saveData(this._tasks);    
+    }    
 
-    }
+    completeTask(id) {
+        this._tasks.map((task) => {
+          if (task.id === id) {
+            task.done = true;
+            task.finished = getTodayDate();
+          }
+        });
+        saveData(this._tasks);
+      }
 
-    completeTask(){
+    getTaskIndex(title){        
 
     }
 

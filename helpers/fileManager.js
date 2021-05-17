@@ -1,6 +1,5 @@
 
 const fs = require("fs");
-
 const name = "./database/data.json";
 
 const saveData = (data) =>{
@@ -21,6 +20,7 @@ const getData = () =>{
     return null;    
 
 }
+
 
 module.exports = {
     saveData,
